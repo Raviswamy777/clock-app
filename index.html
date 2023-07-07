@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer{
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <section class="timer">
+            <h1><span id="mins">00</span>m : <span id="secs">00</span>s</h1>
+            <button onclick="doSomething()">Start</button>
+            <button>Reset</button>
+        </section>
+    </center>
+</body>
+<script>
+    function doSomething(){
+        let seconds = 0;
+        let minutes =0;
+       setInterval(()=>{
+        if(seconds <= 9){
+            document.getElementById("secs").innerText = `0${seconds++}`;
+        }
+        else if(seconds >= 20){
+             seconds =0;
+             if(seconds <= 9){
+            document.getElementById("mins").innerText = `0${++minutes}`; 
+        }
+        else{
+            document.getElementById("mins").innerText = ++minutes; 
+        }            
+        }
+        else{
+            document.getElementById("secs").innerText = ++seconds;
+        }
+       }, 1000);
+    }
+//    doSomething();
+    </script>
+</html>
